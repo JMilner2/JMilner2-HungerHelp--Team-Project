@@ -1,0 +1,14 @@
+Flask
+WTForms
+Flask-WTF
+email_validator
+python-dotenv
+flask_sqlalchemy
+bcrypt
+mysql-connector-python
+mysqlclient
+flask_login
+Flask-Reuploaded
+flask_uploads
+flask_testing
+sendgrid
