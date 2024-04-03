@@ -1,0 +1,38 @@
+/*
+Author: Shaikha Almajed
+Description: CSS styles for the profile page
+*/
+
+.container-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    position: relative;
+    border-radius: 20px;
+    padding: 20px;
+    color: black;
+    background-color: transparent;
+}
+
+.profile-table {
+    width: 100%;
+}
+
+.profile-table th,
+.profile-table td {
+    padding: 10px;
+    color: darkolivegreen;
+    font-size: 25px;
+
+}
+
+.profile-table th {
+    text-align: left;
+    font-weight: bold;
+    color: darkolivegreen;
+    font-size: 30px;
+}

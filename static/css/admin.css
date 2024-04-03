@@ -1,0 +1,35 @@
+/*
+Author: Shaikha
+Description: CSS styles for the admin page
+*/
+
+.container-admin {
+    margin: 20px auto;
+    max-width: 960px;
+}
+
+.admin-box {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid black;
+}
+
+.admin-button {
+    margin-top: 10px;
+}
+
+.container-table {
+  margin-top: 20px;
+}

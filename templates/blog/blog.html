@@ -1,0 +1,75 @@
+<!--Authors: Josh + Andrew -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <img class="background-img" src="{{ url_for('static', filename='images/greenbackground.jpg') }}">
+    </div>
+    {% if current_user.is_authenticated %}
+        <div class="column is-5 is-offset-4">
+        {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="field">
+                        {{ form.csrf_token }}
+                        <div class="control">
+                            {{ form.title(class="input", placeholder="Title") }}
+                            {% for error in form.title.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            {{ form.recipe(class="textarea", placeholder="Recipe") }}
+                            {% for error in form.recipe.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            {{ form.ingredients(class="textarea", placeholder="Ingredients") }}
+                            {% for error in form.ingredients.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            {{ form.price(class="input", placeholder="Price") }}
+                            {% for error in form.price.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            {{ form.image(class="form-control")}}
+                            {% for error in form.image.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        {{ form.submit(class="button is-info is-centered") }}
+                    </div>
+                    {% if file_url %}
+                        <div class="mt-5">
+                            <img src="{{file_url}}" style="width: 400px;">
+                            <a>submitted</a>
+                            <a href="{{url_for('blog.blog_home')}}" >Go back to home page</a>
+                        </div>
+                    {% endif %}
+                </form>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

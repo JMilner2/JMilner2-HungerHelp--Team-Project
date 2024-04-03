@@ -1,0 +1,67 @@
+<!--Authors: Vilius + Josh + Andrew + Shaikha -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/register-login.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutus.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/locator.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+
+    </head>
+    <body>
+            <nav class="navbar">
+
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item">
+                                <img src="{{ url_for('static', filename='images/LogoText.png') }}" alt="Website Logo">
+                            </a>
+                            {% if current_user.is_anonymous %}
+                            <a href="{{ url_for('main.index') }}"class="navbar-item"><i class="fas fa-home"></i>
+                                Home
+                            </a>
+                            {% endif %}
+                            <a href="{{ url_for('blog.blog_home') }}" class="navbar-item"><i class="fas fa-book"></i>
+                                Recipes
+                            </a>
+                            <a href="{{ url_for('locator.locator') }}" class="navbar-item"><i class="fas fa-map-marker-alt"></i>
+                                Find Food
+                            </a>
+                            <a href="{{ url_for('Aboutus.Aboutus') }}" class="navbar-item"><i class="fas fa-info-circle"></i>
+                                About us
+                            </a>
+                            {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                            <a href="{{ url_for('admin.admin') }}" class="navbar-item"><i class="fas fa-user-shield"></i>
+                                Admin
+                            </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('users.settings') }}" class="navbar-item"><i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+            </nav>
+        <div class="hero-body is-fluid">
+            <div class="container has-text-centered is-fluid">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <footer class="footer custom-footer">
+            <div class="content has-text-centered">
+                <p>Contact us at: <a href="mailto:hungerhelphelp@gmail.com">hungerhelphelp@gmail.com</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

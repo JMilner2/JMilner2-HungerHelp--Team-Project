@@ -1,0 +1,91 @@
+<!--Authors: Vilius + Shaikha -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="column is-5 is-offset-4">
+        <div class="container-register-login">
+            <div class="container-image" >
+                <img class="background-img" src="{{ url_for('static', filename='images/greenbackground.jpg') }}">
+            </div>
+            <div class="container-form">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}. Go to <a href="{{ url_for('users.login') }}">login page</a>.
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form method="POST" class="form">
+                    <h3 class="title">Register</h3>
+                    <div>
+                        {{ form.csrf_token }}
+                        <div class="form-field">
+                            {{ form.email(class="input", placeholder="Email") }}
+                            {% for error in form.email.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-field">
+                            {{ form.firstname(class="input", placeholder="First Name") }}
+                            {% for error in form.firstname.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-field">
+                            {{ form.lastname(class="input", placeholder="Last Name") }}
+                            {% for error in form.lastname.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-field">
+                            {{ form.phone(class="input", placeholder="Phone") }}
+                            {% for error in form.phone.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-field">
+                            {{ form.password(class="input", placeholder="Password") }}
+                            {% for error in form.password.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-field">
+                            {{ form.confirm_password(class="input", placeholder="Confirm Password") }}
+                            {% for error in form.confirm_password.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                     <div>
+                        <div class="form-field">
+                            {{ form.notifications(class="checkbox", placeholder="Send Email Notifications") }}
+                            I agree to receive post notifications for the blog
+                            {% for error in form.confirm_password.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        {{ form.submit(class="button is-success is-centered") }}
+                    </div>
+                    <div class="form-field">
+                        Already have an account? <a href="{{ url_for('users.login') }}"> Login here </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

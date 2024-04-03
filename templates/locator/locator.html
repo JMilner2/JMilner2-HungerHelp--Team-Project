@@ -1,0 +1,55 @@
+<!--Author: Vilius -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title is-1">Food Bank Finder</h1>
+    <h3 class="title is-3">Enter City or Postcode to find nearby Food Banks</h3>
+        <div class="container-locator">
+            <div class="image-container">
+                <img class="background-img" src="{{ url_for('static', filename='images/greenbackground.jpg') }}">
+            </div>
+
+                {% if form %}
+                    <form method="POST">
+                    {{ form.csrf_token() }}
+                        <div class="field has-addons has-addons-centered">
+                            <div class="control">
+                                {{ form.location(class="input", placeholder="City or Postcode") }}
+                            </div>
+                            <div>
+                            {{ form.submit(class="button is-success") }}
+                            </div>
+                        </div>
+                    </form>
+                {% endif %}
+
+            <div class="map-container">
+                {% if render == 0 %}
+                    <iframe
+                        width="1500"
+                        height="700"
+                        style="border:0"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="{{url}}">
+                    </iframe>
+                {% endif %}
+                {% if render == 1 %}
+                    <iframe
+                        width="1500"
+                        height="700"
+                        style="border:2px solid black"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="{{url}}">
+                    </iframe>
+                {% endif %}
+
+            </div>
+        </div>
+
+
+{% endblock %}

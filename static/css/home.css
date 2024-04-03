@@ -1,0 +1,58 @@
+/*
+Author: Shaikha Almajed
+Description: CSS styles for the home page
+*/
+
+.home-contanier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 800px;
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  position: relative;
+}
+
+.image-container img {
+  width: 100%; /* Adjust the width as needed */
+}
+
+.caption {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.element-container {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  margin-top: 20px;
+  width: 200px; /* Adjust the width as needed */
+}
+
+.element {
+  text-align: center;
+  background-color: rgba(0, 128, 0, 0.3);
+  font-size: 20px;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.element-container .element1,
+.element-container .element2 {
+  margin-bottom: 50px;
+}
+
+.my-link {
+  color: black;
+}

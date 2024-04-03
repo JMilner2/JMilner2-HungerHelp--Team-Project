@@ -1,0 +1,71 @@
+<!--Authors: Shaikha -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-admin">
+    <h1 class="title is-1">Admin Page</h1>
+    <div class="admin-box">
+        <h4 class="title is-4">CURRENT USERS</h4>
+        <header class="intro-header" style="background-image: url('static/images/simple-green.jpg');">
+        {% if current_users %}
+            <table class="admin-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Phone No.</th>
+                    <th>Role</th>
+                    <th>Registered</th>
+                    <th>Logged In</th>
+                </tr>
+                {% for user in current_users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.role }}</td>
+                        <td>{{ user.registered_on.strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                        {% if user.current_login %}
+                            <td>{{ user.current_login.strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                        {% else %}
+                            <td>Not yet logged in</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        </header>
+        <form method="POST" action="/view_all_users">
+            <div>
+                <button class="button is-success">View All Users</button>
+            </div>
+        </form>
+</div>
+    <div class="admin-box">
+        <h4 class="title is-4">SECURITY LOGS</h4>
+        <header class="intro-header" style="background-image: url('static/images/simple-green.jpg');">
+        {% if logs %}
+            <table class="admin-table">
+                <tr>
+                    <th>Last 20 Security Log Entries</th>
+                </tr>
+                {% for entry in logs %}
+                    <tr>
+                        <td>{{ entry }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        </header>
+        <form method="POST" action="/logs">
+            <div>
+                <button class="button is-success"> View Logs</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

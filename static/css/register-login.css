@@ -1,0 +1,57 @@
+/*
+Author: Shaikha Almajed
+Description: CSS styles for the Register and login pages
+*/
+
+.container-register-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.container-form {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+
+}
+
+.form {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: transparent;
+    display: block;
+    margin-bottom: 50px;
+    z-index: 2;
+    position: absolute;
+
+}
+
+.form-field {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.container-image{
+    position: relative;
+}
+
+.background-img {
+    opacity: 0.3;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+}

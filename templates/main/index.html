@@ -1,0 +1,25 @@
+<!--Author: Shaikha -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="home-contanier">
+   <div class="image-container" >
+        <img class="background-img" src="{{ url_for('static', filename='images/simple-green.jpg') }}">
+    </div>
+    <div class="image-container">
+      <figure>
+        <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Website Logo">
+      </figure>
+      <figcaption class="caption">A Hunger-Free Community Starts With HungerHelp</figcaption>
+    </div>
+    <div class="element-container">
+      <div class="element element1">
+        <a href="{{ url_for('users.login') }}" class="my-link">Login</a>
+      </div>
+      <div class="element element2">
+        <a href="{{ url_for('users.register') }}" class="my-link">Register</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
